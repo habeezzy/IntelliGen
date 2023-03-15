@@ -18,9 +18,7 @@ const App = () => {
           <Route path="/" element={ <Home />} />
           <Route path="/create-post" element={ <CreatePost />} />
         </Routes>
-
       </main>
-
     </BrowserRouter>
   )
 }

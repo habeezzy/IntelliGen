@@ -23,12 +23,12 @@ const CreatePost = () => {
     const randomPrompt = getRandomPrompt(form.prompt);
     setForm({ ...form, prompt: randomPrompt });
   };
-
+//checks if theres a prompt, then pass data to OpenAI to recieve generated AI image
   const generateImage = async () => {
     if (form.prompt) {
       try {
         setGeneratingImg(true);
-        const response = await fetch('https://dalle-arbb.onrender.com/api/v1/dalle', {
+        const response = await fetch('http://localhost:8080/api/v1/intelligen', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ const CreatePost = () => {
             prompt: form.prompt,
           }),
         });
-
+        //parse data in order to save and render images
         const data = await response.json();
         setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` });
       } catch (err) {

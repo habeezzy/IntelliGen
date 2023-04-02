@@ -57,7 +57,7 @@ const Home = () => {
     setSearchTimeout(
       setTimeout(() => {
         const searchResult = allPosts.filter((item) => item.name.toLowerCase().includes(searchText.toLowerCase()) || item.prompt.toLowerCase().includes(searchText.toLowerCase()));
-        setSearchedResults(searchResults);
+        setSearchedResults(searchResult);
       }, 500),
     );
   };
@@ -78,7 +78,7 @@ const Home = () => {
         name="text"
         placeholder="Search posts"
         value={searchText}
-        handleSearchChange={handleSearchChange}
+        handleChange={handleSearchChange}
          />
         
       </div>
